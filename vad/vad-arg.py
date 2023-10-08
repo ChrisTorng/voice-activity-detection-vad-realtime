@@ -61,7 +61,7 @@ while True:
         frames.append(data)
 
         # Save the recorded data as a WAV file
-        audio_recorded_filename = f'RECORDED-{str(time.time())}-{str(uuid4()).replace("-","")}.wav'
+        audio_recorded_filename = f'..\\audio\\RECORDED-{str(time.time())}-{str(uuid4()).replace("-","")}.wav'
         wf = wave.open(audio_recorded_filename, 'wb')
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(pa.get_sample_size(FORMAT))
@@ -69,11 +69,14 @@ while True:
         wf.writeframes(b''.join(frames))
         wf.close()
 
+        # Clear frames
+        frames = []
+
         # # Stop Debug
         # break
 
-        # Some Sample Activity - 5 Seconds execution
-        time.sleep(5)
+        # # Some Sample Activity - 5 Seconds execution
+        # time.sleep(5)
         inactive_session = False
     else:
         sys.stdout.write('1' if is_active else '_')

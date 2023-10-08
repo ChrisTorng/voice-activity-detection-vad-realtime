@@ -1,3 +1,4 @@
 *.wav
 *.pt
 ondev*.py
+.venv/

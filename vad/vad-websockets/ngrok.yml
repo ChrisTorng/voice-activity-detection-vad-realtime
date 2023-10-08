@@ -1,9 +1,10 @@
 version: 2
-authtoken: <ngrokauth>
+authtoken: 2WTiFHQtEj74cDORRuzl4Wyjcw6_6RzNBGpDFCbCdwdnjn1P8
 tunnels:
   first:
     addr: 5000
     proto: http    
   second:
+    hostname: dear-annually-robin.ngrok-free.app
     addr: 5001
     proto: http

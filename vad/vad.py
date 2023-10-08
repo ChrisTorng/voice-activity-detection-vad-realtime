@@ -36,7 +36,7 @@ while True:
     is_active = vad.is_speech(data, sample_rate=RATE)
     
     # Check Flagging for Stop after N Seconds
-    idle_time = 2
+    idle_time = 0.5
     if is_active:
         inactive_session = False
     else:
@@ -50,23 +50,23 @@ while True:
     if (inactive_session == True) and (time.time() - inactive_since) > idle_time:
         sys.stdout.write('X')
         
-        # Append data chunk of audio to frames - save later
-        frames.append(data)
+        # # Append data chunk of audio to frames - save later
+        # frames.append(data)
 
-        # Save the recorded data as a WAV file
-        audio_recorded_filename = f'RECORDED-{str(time.time())}-{str(uuid4()).replace("-","")}.wav'
-        wf = wave.open(audio_recorded_filename, 'wb')
-        wf.setnchannels(CHANNELS)
-        wf.setsampwidth(pa.get_sample_size(FORMAT))
-        wf.setframerate(RATE)
-        wf.writeframes(b''.join(frames))
-        wf.close()
+        # # Save the recorded data as a WAV file
+        # audio_recorded_filename = f'..\\audio\\RECORDED-{str(time.time())}-{str(uuid4()).replace("-","")}.wav'
+        # wf = wave.open(audio_recorded_filename, 'wb')
+        # wf.setnchannels(CHANNELS)
+        # wf.setsampwidth(pa.get_sample_size(FORMAT))
+        # wf.setframerate(RATE)
+        # wf.writeframes(b''.join(frames))
+        # wf.close()
 
-        # # Stop Debug
-        # break
+        # # # Stop Debug
+        # # break
 
-        # Some Sample Activity - 5 Seconds execution
-        time.sleep(5)
+        # # Some Sample Activity - 5 Seconds execution
+        # time.sleep(5)
         inactive_session = False
     else:
         sys.stdout.write('1' if is_active else '_')

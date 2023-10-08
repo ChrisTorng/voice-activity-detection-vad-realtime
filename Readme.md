@@ -1,3 +1,12 @@
+```
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+cd vad
+python vad.py
+```
+
+
 # _**Voice Activity Detection**_
 
 <a href="https://paypal.me/hanifabdlh?country.x=ID&locale.x=id_ID"><img src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png" height="72"></a>

@@ -69,7 +69,7 @@ while True:
         # Transcribe
         transcription = model.transcribe(
             audio=audio_recorded_filename,
-            language="id",
+            language="zh",
         )
         print(f'\n{str(transcription["text"].strip())}')
 
