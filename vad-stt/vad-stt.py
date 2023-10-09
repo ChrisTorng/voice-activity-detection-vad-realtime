@@ -7,7 +7,7 @@ from uuid import uuid4
 
 import whisper
 # Load Model
-model = whisper.load_model("tiny", download_root="../model/")
+model = whisper.load_model("medium", download_root="../model/")
 
 print("Voice Activity Monitoring")
 print("1 - Activity Detected")
@@ -40,7 +40,7 @@ while True:
     is_active = vad.is_speech(data, sample_rate=RATE)
     
     # Check Flagging for Stop after N Seconds
-    idle_time = 2
+    idle_time = 1
     if is_active:
         inactive_session = False
     else:
@@ -70,16 +70,21 @@ while True:
         transcription = model.transcribe(
             audio=audio_recorded_filename,
             language="zh",
+            initial_prompt="繁體中文台灣用語",
         )
+            
         print(f'\n{str(transcription["text"].strip())}')
 
         # # Stop Debug
-        break
+        # break
         
+        # clear frames
+        frames = []
+
         # # Some Sample Activity - 5 Seconds execution
         # time.sleep(5)
         # # Flagging to Listen Again
-        # inactive_session = False
+        inactive_session = False
     else:
         sys.stdout.write('1' if is_active else '_')
     

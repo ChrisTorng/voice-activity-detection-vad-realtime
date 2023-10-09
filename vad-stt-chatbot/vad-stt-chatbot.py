@@ -9,13 +9,13 @@ import json
 
 import whisper
 # Load Model
-model = whisper.load_model("tiny", download_root="../model/")
+model = whisper.load_model("medium", download_root="../model/")
 
-input("Press Enter to continue...")
 print("Voice Activity Monitoring")
 print("1 - Activity Detected")
 print("_ - No Activity Detected")
 print("X - No Activity Detected for Last IDLE_TIME Seconds")
+input("Press Enter to continue...")
 print("\nMonitor Voice Activity Below:")
 
 # Parameters
@@ -72,7 +72,8 @@ while True:
         # Transcribe
         transcription = model.transcribe(
             audio=audio_recorded_filename,
-            language="id",
+            language="zh",
+            initial_prompt="繁體中文台灣用語",
         )
 
         # Sent to Chatbot
@@ -92,12 +93,15 @@ while True:
             print(f'Bot : {json.dumps(message["text"])}')
 
         # # Stop Debug
-        break
+        # break
         
+        # clear frames
+        frames = []
+
         # # Some Sample Activity - 5 Seconds execution
         # time.sleep(5)
         # # Flagging to Listen Again
-        # inactive_session = False
+        inactive_session = False
     else:
         sys.stdout.write('1' if is_active else '_')
     

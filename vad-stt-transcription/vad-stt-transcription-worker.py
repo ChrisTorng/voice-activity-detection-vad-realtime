@@ -9,7 +9,7 @@ import json
 import os
 
 
-model = whisper.load_model("tiny", download_root="../model/")
+model = whisper.load_model("medium", download_root="../model/")
 
 def encode_audio_frame(audio_frames):
     encoded = [struct.pack('h' * len(decoded_frame), *decoded_frame) for decoded_frame in audio_frames]
@@ -39,7 +39,8 @@ def callback(ch, method, props, body):
     # Transcibe audio
     transcription = model.transcribe(
         audio = audio_recorded_filename,
-        language = "id",
+        language = "zh",
+        initial_prompt="繁體中文台灣用語",
     )
     
     # Get text from transcription

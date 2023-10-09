@@ -4,8 +4,25 @@ python -m venv .venv
 pip install -r requirements.txt
 cd vad
 python vad.py
+python vad-arg.py
+cd vad-websockets
 ```
 
+.venv not support:
+vad-stt
+
+Anaconda Prompt:
+conda create --name vad
+(actiate vad)
+pip install -r requirements.txt
+cd vad-stt
+python vad-stt.py
+cd vad-stt-chatbot
+python vad-stt-chatbot.py
+cd vad-stt-transcription
+python vad-stt-transcription-worker.py
+python vad-stt-transcription-show.py
+python vad-stt-transcription.py
 
 # _**Voice Activity Detection**_
 
