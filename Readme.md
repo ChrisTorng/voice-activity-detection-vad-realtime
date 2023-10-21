@@ -13,12 +13,15 @@ vad-stt
 
 Anaconda Prompt:
 conda create --name vad
-(actiate vad)
+(activate vad)
 pip install -r requirements.txt
+
 cd vad-stt
 python vad-stt.py
+
 cd vad-stt-chatbot
 python vad-stt-chatbot.py
+
 cd vad-stt-transcription
 python vad-stt-transcription-worker.py
 python vad-stt-transcription-show.py

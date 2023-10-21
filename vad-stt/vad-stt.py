@@ -40,7 +40,7 @@ while True:
     is_active = vad.is_speech(data, sample_rate=RATE)
     
     # Check Flagging for Stop after N Seconds
-    idle_time = 1
+    idle_time = 0.5
     if is_active:
         inactive_session = False
     else:
