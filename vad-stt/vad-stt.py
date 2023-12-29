@@ -58,7 +58,7 @@ while True:
         frames.append(data)
 
         # Save the recorded data as a WAV file
-        audio_recorded_filename = f'../audio/RECORDED-{str(time.time())}-{str(uuid4()).replace("-","")}.wav'
+        audio_recorded_filename = f'../audio/RECORDED-{str(time.time())}.wav'
         wf = wave.open(audio_recorded_filename, 'wb')
         wf.setnchannels(CHANNELS)
         wf.setsampwidth(pa.get_sample_size(FORMAT))
